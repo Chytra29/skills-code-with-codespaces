@@ -1,26 +1,13 @@
-name: Step 0, Welcome
-
-# This step triggers after the learner creates a new repository from the template.
-# This workflow updates from step 0 to step 1.
-
-# This will run every time we create push a commit to `main`.
-# Reference: https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
-on:
-  create:
-  workflow_dispatch:
-
-# Reference: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
-permissions:
-  # Need `contents: read` to checkout the repository.
-  # Need `contents: write` to update the step metadata.
-  contents: write
-
+name: learn-github-actions
+on: workflow_dispatch
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 jobs:
-  # Get the current step to only run the main job when the learner is on the same step.
-  get_current_step:
-    name: Check current step number
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: print
-        run: echo ${{ secrets.GITHUB_TOKEN}}
-        
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
