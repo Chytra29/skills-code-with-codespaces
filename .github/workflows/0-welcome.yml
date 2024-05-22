@@ -22,5 +22,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print
-        run: echo ${{ SECRET.GITHUB_TOKEN}}
+        run: echo ${{ secrets.GITHUB_TOKEN}}
         
